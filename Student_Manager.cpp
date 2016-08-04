@@ -1,5 +1,6 @@
 #include "Student_Manager.hpp"
 #include <algorithm>
+#include <cstdio>
 
 void Student::showGrade() const {
   std::cout << "id: " << id << " name: " << name << std::endl;
@@ -89,6 +90,31 @@ void studentManager::sort() {
            [](const Student &person) { person.showGrade(); });
 }
 
+void studentManager::a_bScore(double lhs, double rhs) {
+  int count;
+  if (lhs == rhs) {
+    count = count_if(
+        m_list.begin(), m_list.end(), [lhs](const Student &person) -> bool {
+          double average = (person.aGrade + person.bGrade + person.cGrade) / 3;
+          return lhs == average;
+        });
+  } else {
+    if (lhs > rhs) {
+      double temp = lhs;
+      lhs = rhs;
+      rhs = temp;
+    }
+    count = count_if(m_list.begin(), m_list.end(),
+                     [lhs, rhs](const Student &person) -> bool {
+                       double average =
+                           (person.aGrade + person.bGrade + person.cGrade) / 3;
+                       return (lhs <= average && average < rhs);
+                     });
+  }
+  printf("The number of students whose averages are in [%lf, %lf) is %d", lhs,
+         rhs, count);
+}
+
 void studentManager::deleteStudent(int id) {
   auto iter = getStudent(id);
   if (iter != m_list.end()) {
@@ -119,6 +145,8 @@ void studentManager::modifyStudnet(int id) {
   }
 }
 
+int studentManager::size() { return m_list.size(); }
+
 void studentManager::writeBack(std::string file_name) {
   std::ofstream out(file_name);
   if (out) {
@@ -130,6 +158,18 @@ void studentManager::writeBack(std::string file_name) {
     std::cout << "Open file failed!" << std::endl;
   }
   out.close();
+}
+
+void studentManager::show50() {
+  std::cout << "The last 50 students's information is listed below :"
+            << std::endl;
+  int count = 50;
+  auto riter = m_list.rbegin();
+  while (count--) {
+    if (riter == m_list.rend()) break;
+    riter->showGrade();
+    --riter;
+  }
 }
 
 void studentManager::help() {

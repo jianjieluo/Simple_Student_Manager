@@ -28,9 +28,11 @@ class studentManager {
   void appendStudent();
   void searchStudent(int id);
   void sort();
-  // void a_bScore(int a, int b);
+  void a_bScore(double lhs, double rhs);
   void deleteStudent(int id);
   void modifyStudnet(int id);
+  void show50();
+  int size();
   void writeBack(std::string file_name = "./student_information");
   void help();
 
