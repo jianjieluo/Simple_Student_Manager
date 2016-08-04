@@ -19,3 +19,18 @@ A simple project to practice my c++ learning
 
 
 会继续修正
+
+
+Function Introduction:
+quit -> quit
+help -> help pages
+append -> add a student's information
+delete -> delete a student's information
+search -> search a student's information
+modify -> modify a student's information
+sort -> sort the informations according to the average grades and print out them
+show -> show the latest 50 students information.
+size -> show the current number of students
+query -> calculate the number of students in [a, b)
+write -> write your changes back to the file
+
