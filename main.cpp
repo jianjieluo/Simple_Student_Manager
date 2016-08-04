@@ -8,7 +8,6 @@ enum choice {
   Invalid,
   Quit,
   Help,
-  Init,
   Write,
   Append,
   Delete,
@@ -22,6 +21,7 @@ enum choice {
 
 int main() {
   // Initialization
+  system("clear");
   std::cout << "Please input the file path you want to import,\nor just input "
                "\"default\" to use the default file"
             << std::endl;
@@ -38,17 +38,17 @@ int main() {
   };
 
   // begin to work
+  system("clear");
   studentManager::getInstance()->help();
   // params
   int t_id;
-
   std::map<std::string, int> choices = {
       make_pair("quit", Quit),     make_pair("help", Help),
-      make_pair("init", Init),     make_pair("write", Write),
-      make_pair("append", Append), make_pair("delete", Delete),
-      make_pair("search", Search), make_pair("modify", Modify),
-      make_pair("sort", Sort),     make_pair("show", Show),
-      make_pair("size", Size),     make_pair("query", Query)};
+      make_pair("write", Write),   make_pair("append", Append),
+      make_pair("delete", Delete), make_pair("search", Search),
+      make_pair("modify", Modify), make_pair("sort", Sort),
+      make_pair("show", Show),     make_pair("size", Size),
+      make_pair("query", Query)};
   bool state_judge = true;
 
   while (state_judge) {
@@ -100,6 +100,17 @@ int main() {
         std::cin >> lhs >> rhs;
         studentManager::getInstance()->a_bScore(lhs, rhs);
         break;
+      case Write:
+        try {
+          if (file_path == "default")
+            studentManager::getInstance()->writeBack();
+          else
+            studentManager::getInstance()->writeBack(file_path);
+        } catch (std::exception &ex) {
+          std::cerr << "Write back the file failed!" << std::endl;
+          std::cout << ex.what() << std::endl;
+        }
+        break;
       case Invalid:
         std::cout << "Invalid input! Please try again!" << std::endl;
         break;
@@ -113,16 +124,6 @@ int main() {
     }
     std::cout << "\n"
               << "Please enter your choice, thanks~" << std::endl;
-  }
-
-  try {
-    if (file_path == "default")
-      studentManager::getInstance()->writeBack();
-    else
-      studentManager::getInstance()->writeBack(file_path);
-  } catch (std::exception &ex) {
-    std::cerr << "Write back the file failed!" << std::endl;
-    std::cout << ex.what() << std::endl;
   }
 
   std::cout << "See You next time !!" << std::endl;

@@ -179,16 +179,21 @@ void studentManager::help() {
             << std::endl;
   std::cout << "\n"
             << "Here is the help page" << std::endl;
-  std::cout << "0 -> quit" << std::endl;
-  std::cout << "1 -> help" << std::endl;
-  std::cout << "2 -> add a student's information" << std::endl;
-  std::cout << "3 -> delete a student's information" << std::endl;
-  std::cout << "4 -> search a student's information" << std::endl;
-  std::cout << "5 -> modify a student's information" << std::endl;
-  std::cout << "6 -> sort the informations according to the average grades and "
-               "print out them"
+  std::cout << "quit -> quit" << std::endl;
+  std::cout << "help -> help pages" << std::endl;
+  std::cout << "append -> add a student's information" << std::endl;
+  std::cout << "delete -> delete a student's information" << std::endl;
+  std::cout << "search -> search a student's information" << std::endl;
+  std::cout << "modify -> modify a student's information" << std::endl;
+  std::cout
+      << "sort -> sort the informations according to the average grades and "
+         "print out them"
+      << std::endl;
+  std::cout << "show -> show the latest 50 students information." << std::endl;
+  std::cout << "size -> show the current number of students" << std::endl;
+  std::cout << "query -> calculate the number of students in [a, b)"
             << std::endl;
-  std::cout << "7 -> calculate the number of students in [a, b)" << std::endl;
+  std::cout << "write -> write your changes back to the file" << std::endl;
   std::cout << "\n"
             << "Please enter your choice, thanks~" << std::endl;
 }
