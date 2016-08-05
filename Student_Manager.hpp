@@ -31,7 +31,7 @@ class studentManager {
   void a_bScore(double lhs, double rhs);
   void deleteStudent(int id);
   void modifyStudnet(int id);
-  void show50();
+  void showTheLast();
   int size();
   void writeBack(std::string file_name = "./student_information");
   void help();

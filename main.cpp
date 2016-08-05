@@ -87,7 +87,7 @@ int main() {
         studentManager::getInstance()->sort();
         break;
       case Show:
-        studentManager::getInstance()->show50();
+        studentManager::getInstance()->showTheLast();
         break;
       case Size:
         std::cout << "The current number of students is : "
@@ -119,13 +119,11 @@ int main() {
         break;
     }
     if (!state_judge) {
-      std::cout << "It is going to write back to the file...." << std::endl;
+      std::cout << "See You next time !!" << std::endl;
       break;
     }
     std::cout << "\n"
               << "Please enter your choice, thanks~" << std::endl;
   }
-
-  std::cout << "See You next time !!" << std::endl;
   return 0;
 }

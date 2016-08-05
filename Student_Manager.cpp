@@ -160,16 +160,16 @@ void studentManager::writeBack(std::string file_name) {
   out.close();
 }
 
-void studentManager::show50() {
-  std::cout << "The last 50 students's information is listed below :"
-            << std::endl;
-  int count = 50;
-  auto riter = m_list.rbegin();
-  while (count--) {
-    if (riter == m_list.rend()) break;
-    riter->showGrade();
-    --riter;
-  }
+void studentManager::showTheLast() {
+  std::cout << "The last student's information is listed below :" << std::endl;
+  // int count = 50;
+  // std::list<Student>::reverse_iterator riter = m_list.rbegin();
+  // while (count--) {
+  //   if (riter == m_list.rend()) break;
+  //   riter->showGrade();
+  //   --riter;
+  // }
+  m_list.rbegin()->showGrade();
 }
 
 void studentManager::help() {
@@ -189,7 +189,7 @@ void studentManager::help() {
       << "sort -> sort the informations according to the average grades and "
          "print out them"
       << std::endl;
-  std::cout << "show -> show the latest 50 students information." << std::endl;
+  std::cout << "show -> show the last student's information." << std::endl;
   std::cout << "size -> show the current number of students" << std::endl;
   std::cout << "query -> calculate the number of students in [a, b)"
             << std::endl;
