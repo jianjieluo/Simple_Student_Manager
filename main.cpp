@@ -87,7 +87,7 @@ int main() {
         studentManager::getInstance()->sort();
         break;
       case Show:
-        studentManager::getInstance()->showTheLast();
+        studentManager::getInstance()->show50();
         break;
       case Size:
         std::cout << "The current number of students is : "

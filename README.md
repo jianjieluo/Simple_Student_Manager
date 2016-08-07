@@ -29,7 +29,7 @@ Function Introduction:
 + search -> search a student's information
 + modify -> modify a student's information
 + sort -> sort the informations according to the average grades and print out them
-+ show -> show the last student's information.
++ show -> show -> show the last 50 students' information.
 + size -> show the current number of students
 + query -> calculate the number of students in [a, b)
 + write -> write your changes back to the file
